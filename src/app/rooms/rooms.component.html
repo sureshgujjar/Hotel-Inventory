@@ -1,0 +1,25 @@
+<!-- <h1 id="heading">Welcome To {{hotelName}}</h1>{{}} = Angular Interpolation Binding -->
+<hop-header></hop-header>
+<hop-header></hop-header>
+<hop-header></hop-header>
+<hr>
+<div id="roomInfo" [hidden]="hideRooms">
+    Number Of Rooms: <br>
+    <!-- ngStyle Directives -->
+    <span [innerText]="numberOfRooms"
+        [ngStyle]="{'color':numberOfRooms>5?'green':'red'}"></span><!-- [] = Angular Property  Binding-->
+</div>
+<div id="addRoom">
+    <button (click)="addRoom()" class="btn btn-danger">Add Room</button>
+</div>
+<div id="selectedRoomInfo" *ngIf="selectedRoom">
+    <h2>Selected Room Information</h2>
+    {{selectedRoom|json}}
+</div>
+<!-- Structural Directive = Starts with * . it can change DOM behavier.they are performance costly. ex-*ngIf,*ngFor-->
+<!-- *ngIf Directive-->
+<!-- <div id="roomList" *ngIf="rooms.availableRooms>0"> -->
+    <div id="roomList" *ngIf="hideRooms">
+    <hop-rooms-list [rooms]="roomsList" [title]="title" (selectedRoom)="selectRoom($event)"></hop-rooms-list>
+    </div>
+<button class="btn btn-primary" (click)="getRoomsInfo()">GetRoomInfo</button><!-- () = Angular Event  Binding-->

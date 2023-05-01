@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+#heading{
+    color:black;
+    text-shadow:1.5px 1.5px orange;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width:45%;
+}
+hr{
+    border-top: 3px solid rgb(230, 51, 51);
+    border-radius: 3px;
+}
+#roomInfo{
+    color:black;
+    font-size: 35px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#roomList
+{
+    color:black;
+    font-size: 25px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+}
+
+th
+{
+ 
+    
+    background-color: rgb(214, 206, 206);
+    color:rgb(0, 0, 0);
+    text-align: center;
+    border-left: 1px solid rgb(119, 118, 118);
+}
+td
+{
+    // border: 1px  ;
+    text-align: center;
+    width: fit-content;
+    
+}
+.even
+{
+    background-color:steelblue;
+    color: white;
+  
+}
+.odd
+{
+    background-color: tomato;
+    color: white;
+}

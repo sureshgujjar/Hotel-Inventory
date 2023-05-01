@@ -1,0 +1,29 @@
+<!-- {{roomsList|json}} Json Pipe only for debug purpose -->
+<h2>{{title}}</h2>
+<table id="roomInfoTable" class="table">
+    <tr>
+        <th>Index</th>
+        <th>Even/Odd</th>
+        <th>Room No</th>
+        <th>Room Type</th>
+        <th>Room Price</th>
+        <th>Room Amenities</th>
+        <th>Checkin Time</th>
+        <th>Rating</th>
+        <th>SelectRoom</th>
+    </tr>
+    <!-- *ngFor Directive And ngClass Directive-->
+    <tr [ngClass]="e?'even':'odd'" *ngFor="let room of rooms;let e=even;let o=odd;let i=index">
+        <!--slicePipe-->
+        <td>{{i|percent}}</td><!--percentPipe-->
+        <td>{{e?"Even":"Odd"}}</td>
+        <td>{{room.roomNo}}</td>
+        <td>{{room.roomType}}</td>
+        <td>{{room.price|currency:'INR'}}</td><!-- currencypipe-->
+        <td>{{room.amenities|titlecase}}</td><!-- titlepipe-->
+        <td>{{room.checkinTime | date:'d MMM, y, h:mm:ss a'}}</td>
+        <!-- here we change checkinTime to short format using | datepipe-->
+        <td>{{room.rating|number:'1.0-0'}}</td><!--DecimalPipe-->
+        <td><button class="btn btn-primary" (click)="selectRoom(room)">Select</button></td>
+    </tr>
+</table>

@@ -3,6 +3,7 @@
 <hop-header></hop-header>
 <hop-header></hop-header>
 <hr>
+<!-- {{room$|async|json}} -->
 <div id="roomInfo" [hidden]="hideRooms">
     Number Of Rooms: <br>
     <!-- ngStyle Directives -->
@@ -11,15 +12,23 @@
 </div>
 <div id="addRoom">
     <button (click)="addRoom()" class="btn btn-danger">Add Room</button>
+</div><br>
+<div id="editRoom">
+    <button (click)="editRoom()" class="btn btn-danger">Edit Room</button>
+</div>
+<div id="deleteRoom">
+    <button (click)="deleteRoom()" class="btn btn-danger">Delete Room</button>
 </div>
 <div id="selectedRoomInfo" *ngIf="selectedRoom">
     <h2>Selected Room Information</h2>
     {{selectedRoom|json}}
 </div>
+<h1>{{totelBytes}} loaded</h1>
 <!-- Structural Directive = Starts with * . it can change DOM behavier.they are performance costly. ex-*ngIf,*ngFor-->
 <!-- *ngIf Directive-->
 <!-- <div id="roomList" *ngIf="rooms.availableRooms>0"> -->
-    <div id="roomList" *ngIf="hideRooms">
+    <h1 id="noOfRooms">No Of Rooms :{{roomcount$|async}}</h1>
+    <div id="roomList" *ngIf="roomsList">
     <hop-rooms-list [rooms]="roomsList" [title]="title" (selectedRoom)="selectRoom($event)"></hop-rooms-list>
     </div>
 <button class="btn btn-primary" (click)="getRoomsInfo()">GetRoomInfo</button><!-- () = Angular Event  Binding-->

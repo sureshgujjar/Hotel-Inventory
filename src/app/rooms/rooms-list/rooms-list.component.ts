@@ -8,9 +8,10 @@ import { RoomsList } from '../rooms';
   changeDetection:ChangeDetectionStrategy.OnPush//ensure change detaction happen only if any change will be done on component by immutable way . 
 })
 export class RoomsListComponent implements OnInit,OnChanges{
-  @Input() rooms: RoomsList[] = [];//its make rooms property for our custom component html tag(<hop-rooms-list></hop-rooms-list>) to take input from Parent .
+  @Input() rooms: RoomsList[]|null = [];//its make rooms property for our custom component html tag(<hop-rooms-list></hop-rooms-list>) to take input from Parent .
   @Input() title:string="";
   @Output() selectedRoom = new EventEmitter<RoomsList>();//we create an event selectedRoom type of<RoomsList>  using EvenntEmitter Class to send output to Parent.
+  
   constructor() {
 
   }
@@ -28,5 +29,7 @@ export class RoomsListComponent implements OnInit,OnChanges{
   selectRoom(room: RoomsList) {
     this.selectedRoom.emit(room);  //room obejct will send using selectedRoom event by emit it. 
   }
+ 
+
 
 }

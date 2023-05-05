@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Optional, ViewChild, View
 import { RoomsComponent } from './rooms/rooms.component';
 import { LoggerService } from './logger.service';
 import { localStorageToken } from './localstorage.token';
+import { InitService } from './init.service';
 
 @Component({
   selector: 'hop-root',
@@ -12,9 +13,9 @@ import { localStorageToken } from './localstorage.token';
 export class AppComponent implements AfterViewInit {
 
   constructor(@Optional()private loggerService:LoggerService,
-  @Inject(localStorageToken)private localStorage:Storage) {
+  @Inject(localStorageToken)private localStorage:Storage,private initService:InitService){
        
-     
+     console.log(initService.config);//access config property of initService which is inject by config.json before app. initilize.
     
   }
   ngAfterViewInit(): void { 

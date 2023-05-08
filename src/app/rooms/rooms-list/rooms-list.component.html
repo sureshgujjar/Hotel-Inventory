@@ -24,7 +24,10 @@
         <td>{{room.checkinTime | date:'d MMM, y, h:mm:ss a'}}</td>
         <!-- here we change checkinTime to short format using | datepipe-->
         <td>{{room.rating|number:'1.0-0'}}</td><!--DecimalPipe-->
-        <td><button class="btn btn-primary" (click)="selectRoom(room)">Select</button></td>
+        <td>
+            <!-- <button class="btn btn-primary" (click)="selectRoom(room)">Select</button> -->
+            <button class="btn btn-primary" [routerLink]="['/rooms',room.roomNo]">Book Room</button>
+        </td>
       
     </tr>
 </table>

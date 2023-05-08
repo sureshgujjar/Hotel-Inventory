@@ -11,9 +11,19 @@ import { ContainerComponent } from './container/container.component';
 import { EmpoyeeComponent } from './empoyee/empoyee.component';
 import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { UserInfoComponent } from './user-info/user-info.component';
+
 import { RequestInterceptor } from './request.interceptor';
 import { InitService } from './init.service';
+import { AppNavComponent } from './app-nav/app-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
+
 //this funcation call InitService
 function initFactory(initService:InitService)
 {
@@ -28,13 +38,22 @@ function initFactory(initService:InitService)
     HeaderComponent,
     ContainerComponent,
     EmpoyeeComponent,
-    UserInfoComponent
+    AppNavComponent,
+    NotFoundComponent,
+    RoomsBookingComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [{
     provide:APP_SERVICE_CONFIG,

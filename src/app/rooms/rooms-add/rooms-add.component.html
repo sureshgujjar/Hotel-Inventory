@@ -1,0 +1,64 @@
+pristine: {{roomsForm.pristine|json}} <br>
+dirty: {{roomsForm.dirty|json}} <br>
+invalid: {{roomsForm.invalid|json}} <br>
+valid: {{roomsForm.valid|json}} <br>
+value: {{roomsForm.value|json}} <br>
+<div class="alert alert-success" *ngIf="successMsg">
+    {{successMsg}}
+</div>
+
+<form #roomsForm="ngForm" (ngSubmit)="AddRoom(roomsForm)"> <!-- #roomFrom store instance of ngForm-->
+    <div class="form-group">
+        <input required class="form-control" type="number" name="roomNo" [(ngModel)]="room.roomNo" id="roomno"
+            placeholder="Enter Room No">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="text" name="roomType" [(ngModel)]="room.roomType" id="roomtype"
+            placeholder="Enter Room Type">
+    </div>
+    <div class="form-group">
+        <input #roomamenities="ngModel" required minlength="5" maxlength="20" class="form-control" type="text"
+            name="amenities" [(ngModel)]="room.amenities" id="amenities"
+            placeholder="Enter Amenities"><!-- We can check regex using pattern -->
+    </div>
+    <!--if pristine is false or touched is true and any invaild error occur  -->
+    <div class="alert alert-danger"
+        *ngIf="!roomamenities?.['pristine']&&roomamenities?.['touched']&&roomamenities.errors">
+        <!-- {{roomrating.errors|json}} -->
+        <!-- {{roomamenities?.['pristine']|json}} -->
+        <span *ngIf="roomamenities.errors?.['required']">Amenities is required  </span>
+        <span *ngIf="roomamenities.errors?.['minlength']">Amenities should be minimum 5 character </span>
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="number" name="price" [(ngModel)]="room.price" id="price"
+            placeholder="Enter Price">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="text" name="photos" [(ngModel)]="room.photos" id="photos"
+            placeholder="Enter Photo Url">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="datetime" [(ngModel)]="room.checkinTime" name="checkinTime"
+            id="checkintime">
+    </div>
+    <div class="form-group">
+        <input required class="form-control" type="datetime" [(ngModel)]="room.checkoutTime" name="checkoutTime"
+            id="checkouttime">
+    </div>
+    <div class="form-group">
+        <input #roomrating="ngModel" required [min]="1" [max]="5" class="form-control" type="number" name="rating"
+            [(ngModel)]="room.rating" min="0" max="5" id="rating" placeholder="Enter Rating">
+    </div>
+    <!-- {{roomrating?.['touched']}} -->
+    <div class="alert alert-danger" *ngIf="!roomrating?.['pristine']&&roomrating?.['touched']&&roomrating.errors">
+        <!--if pristine is false or touched is true and any invaild error occur  -->
+        <!-- {{roomrating.errors|json}} -->
+        <span *ngIf="roomrating.errors?.['required']">Rating is compulsory</span>
+        <span *ngIf="roomrating.errors?.['min']">Minimum 1 is compulsory</span>
+        <span *ngIf="roomrating.errors?.['max']">Maximum 5 Allowed</span>
+    </div>
+    <div>
+        <button [disabled]="roomsForm.invalid" class="btn btn-primary" type="submit">Submit</button>
+    </div>
+
+</form>

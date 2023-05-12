@@ -1,0 +1,20 @@
+<div class="formdiv">
+<form action="" class="formclass" #logInForm="ngForm">
+        <div class="form-group">
+            <input  hopEmailvaildator hopHover="white" #emailField="ngModel"  type="email" class="form-control" name="emailId" [(ngModel)]="email" required  pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" id="email" placeholder="Provide Your Email">
+        </div>
+        <!-- {{emailControl.errors|json}} <br> -->
+        <div class="form-group" *ngIf="!emailField?.['pristine']&& emailField?.['touched']&&emailField.errors?.['required']">
+            <span style="color: red"; *ngIf="emailField.errors?.['required']">Email is required</span>
+            <span style="color: red;" *ngIf="emailField.errors?.['pattern']">Enter valid email</span>
+        </div> <br>
+         
+        <div class="form-group">
+            <input hopHover="white" type="password" class="form-control" name="password" [(ngModel)]="password" id="password" placeholder="Provide Your Password">
+        </div> <br>
+        <div class="form-group" id="btn">
+            <button [disabled]="logInForm.invalid" class="btn btn-primary" (click)="login()">LogIn</button>
+        </div>
+    </form>
+</div>
+

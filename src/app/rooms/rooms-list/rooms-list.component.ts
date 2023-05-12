@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { RoomsList } from '../rooms';
+import { RoomsService } from '../services/rooms.service';
 
 @Component({
   selector: 'hop-rooms-list',
@@ -12,7 +13,7 @@ export class RoomsListComponent implements OnInit,OnChanges{
   @Input() title:string="";
   @Output() selectedRoom = new EventEmitter<RoomsList>();//we create an event selectedRoom type of<RoomsList>  using EvenntEmitter Class to send output to Parent.
   
-  constructor() {
+  constructor(private roomService:RoomsService) {
 
   }
   //ngOnchanges-SimpleChanges is an Angular/Core feature that can be used to see the changes and a few more details of the declared (@input)property names in a component .
@@ -29,6 +30,10 @@ export class RoomsListComponent implements OnInit,OnChanges{
   selectRoom(room: RoomsList) {
     this.selectedRoom.emit(room);  //room obejct will send using selectedRoom event by emit it. 
   }
+  deleteRoom(roomId:number)
+{
+    this.roomService.deleteRoom(roomId).subscribe();
+}
  
 
 

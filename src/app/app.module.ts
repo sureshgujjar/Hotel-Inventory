@@ -3,10 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RoomsComponent } from './rooms/rooms.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
-import { HeaderComponent } from './header/header.component';
+
 import { ContainerComponent } from './container/container.component';
 import { EmpoyeeComponent } from './empoyee/empoyee.component';
 import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
@@ -22,7 +20,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { HoverDirective } from './hover.directive';
+
+import { RoomsModule } from './rooms/rooms.module';
+import { EmailvaildatorDirective } from './vaildator/emailvaildator.directive';
+
+
 
 //this funcation call InitService
 function initFactory(initService:InitService)
@@ -33,18 +38,19 @@ function initFactory(initService:InitService)
 @NgModule({
   declarations: [
     AppComponent,
-    RoomsComponent,
-    RoomsListComponent,
-    HeaderComponent,
+   
     ContainerComponent,
     EmpoyeeComponent,
     AppNavComponent,
     NotFoundComponent,
-    RoomsBookingComponent,
+    LoginComponent,
+    HoverDirective,
+    EmailvaildatorDirective
     
   ],
   imports: [
     BrowserModule,
+    RoomsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -53,7 +59,9 @@ function initFactory(initService:InitService)
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+
   ],
   providers: [{
     provide:APP_SERVICE_CONFIG,

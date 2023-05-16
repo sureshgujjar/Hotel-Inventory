@@ -17,7 +17,7 @@ value: {{roomsForm.value|json}} <br>
             placeholder="Enter Room Type">
     </div>
     <div class="form-group">
-        <input #roomamenities="ngModel" required minlength="5" maxlength="20" class="form-control" type="text"
+        <input #roomamenities="ngModel" required minlength="5" maxlength="50" class="form-control" type="text"
             name="amenities" [(ngModel)]="room.amenities" id="amenities"
             placeholder="Enter Amenities"><!-- We can check regex using pattern -->
     </div>

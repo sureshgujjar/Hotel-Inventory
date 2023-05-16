@@ -1,15 +1,12 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ContainerComponent } from './container/container.component';
 import { EmpoyeeComponent } from './empoyee/empoyee.component';
 import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-
 import { RequestInterceptor } from './request.interceptor';
 import { InitService } from './init.service';
 import { AppNavComponent } from './app-nav/app-nav.component';
@@ -23,9 +20,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HoverDirective } from './hover.directive';
-
-import { RoomsModule } from './rooms/rooms.module';
 import { EmailvaildatorDirective } from './vaildator/emailvaildator.directive';
+
+
+
 
 
 
@@ -38,7 +36,6 @@ function initFactory(initService:InitService)
 @NgModule({
   declarations: [
     AppComponent,
-   
     ContainerComponent,
     EmpoyeeComponent,
     AppNavComponent,
@@ -47,10 +44,10 @@ function initFactory(initService:InitService)
     HoverDirective,
     EmailvaildatorDirective
     
+    
   ],
   imports: [
     BrowserModule,
-    RoomsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -61,6 +58,9 @@ function initFactory(initService:InitService)
     MatIconModule,
     MatListModule,
     FormsModule,
+    
+   
+
 
   ],
   providers: [{

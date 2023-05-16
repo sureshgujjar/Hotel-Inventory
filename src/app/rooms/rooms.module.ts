@@ -13,12 +13,14 @@ import { HeaderModule } from '../header/header.module';
 
 
 
+
 @NgModule({
   declarations: [
     RoomsComponent,
     RoomsListComponent,
     RoomsBookingComponent,
     RoomsAddComponent,
+    
   
   ],
   imports: [

@@ -4,6 +4,7 @@ import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from './services/rooms.service';
 import { Observable, Subscription, map } from 'rxjs';
 import { HttpEventType } from '@angular/common/http';
+import { ConfigService } from '../services/config.service';
 
 
 @Component({
@@ -44,7 +45,7 @@ export class RoomsComponent implements OnInit,  AfterViewInit, AfterViewChecked,
   //After Consturctor ngOnInit() hook will be called.
 
 
-  constructor(@SkipSelf() private roomService: RoomsService) {
+  constructor(@SkipSelf() private roomService: RoomsService,private config:ConfigService) {
 
   }
  
@@ -67,9 +68,9 @@ export class RoomsComponent implements OnInit,  AfterViewInit, AfterViewChecked,
     )
     //  this.roomService.getRooms().subscribe
     this.subscription=this.roomService.getRooms$.subscribe(rooms => { //use getRooms$ stream to call same api at multipal component it will only send  HttpRequest once
-      this.roomsList = rooms;
-    });
-    
+      this.roomsList = rooms;});
+    // 
+ 
     this.roomService.getPhotos().subscribe((event) => {
       switch (event.type) {
         case HttpEventType.Sent: {

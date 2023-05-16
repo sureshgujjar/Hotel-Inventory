@@ -27,8 +27,10 @@
 <!-- Structural Directive = Starts with * . it can change DOM behavier.they are performance costly. ex-*ngIf,*ngFor-->
 <!-- *ngIf Directive-->
 <!-- <div id="roomList" *ngIf="rooms.availableRooms>0"> -->
+    
     <h1 id="noOfRooms">No Of Rooms :{{roomcount$|async}}</h1>
     <div id="roomList" *ngIf="roomsList">
     <hop-rooms-list [rooms]="roomsList" [title]="title" (selectedRoom)="selectRoom($event)"></hop-rooms-list>
     </div>
-<button class="btn btn-primary" (click)="getRoomsInfo()">GetRoomInfo</button><!-- () = Angular Event  Binding-->
+<button class="btn btn-primary" (click)="getRoomsInfo()">GetRoomInfo</button><br><!-- () = Angular Event  Binding-->
+<router-outlet></router-outlet>

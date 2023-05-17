@@ -1,1 +1,169 @@
-<p>booking works!</p>
+{{bookingForm.value|json}} <br>
+<!-- {{bookingForm.pristine|json}} <br>
+{{bookingForm.dirty|json}} <br> -->
+<!-- formControlName= map our form field to html input -->
+<!-- formGroup=map our reactive form to bookingForm -->
+<form [formGroup]="bookingForm" (ngSubmit)="addBooking()">
+    <mat-form-field class="example-full-width">
+        <mat-label>bookingId</mat-label>
+        <input type="number" matInput formControlName="bookingId" placeholder="bookingId">
+        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>roomId</mat-label>
+        <input type="number" matInput formControlName="roomId" placeholder="roomId">
+
+        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>guestName</mat-label>
+        <input type="text" matInput formControlName="guestName" placeholder="guestName">
+
+        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>guestEmail</mat-label>
+        <input type="email" matInput formControlName="guestEmail" placeholder="Provide a email">
+
+        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>mobileNumber</mat-label>
+        <input type="email" matInput formControlName="mobileNumber" placeholder="Provide mobile number">
+
+        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>checkInDate</mat-label>
+        <input matInput [matDatepicker]="checkInDatePicker" formControlName="checkinDate">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="checkInDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkInDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>checkOutDate</mat-label>
+        <input matInput [matDatepicker]="checkOutDatePicker" formControlName="checkoutDate">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="checkOutDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkOutDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Booking Date</mat-label>
+        <input matInput [matDatepicker]="bookingDatePicker" formControlName="bookingDate">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="bookingDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #bookingDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>bookingStatus</mat-label>
+        <input type="text" matInput formControlName="bookingStatus" placeholder="bookingStatus">
+
+        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>bookingAmount</mat-label>
+        <input type="number" matInput formControlName="bookingAmount" placeholder="bookingAmount">
+
+        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <div>
+        <button mat-raised-button color="primary" type="submit">Book Room</button>
+    </div>
+    
+
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>guestAddress</mat-label>
+        <input type="text" matInput formControlName="guestAddress"
+               placeholder="guestAddress">
+        
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> -->
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>guestCity</mat-label>
+        <input type="text" matInput formControlName="guestCity"
+               placeholder="guestCity">
+        
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> -->
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>guestState</mat-label>
+        <input type="text" matInput formControlName="guestState"
+               placeholder="guestState">
+        
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> 
+      </mat-form-field> -->
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>guestCountry</mat-label>
+        <input type="text" matInput formControlName="guestCountry"
+               placeholder="guestCountry">
+        
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> -->
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>guestZipCode</mat-label>
+        <input type="number" matInput formControlName="guestZipCode"
+               placeholder="guestZipCode">
+        
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> -->
+</form>

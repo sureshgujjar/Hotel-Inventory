@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginserviceService } from '../login/loginservice.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class LoginGuard implements CanActivate, CanLoad {
  

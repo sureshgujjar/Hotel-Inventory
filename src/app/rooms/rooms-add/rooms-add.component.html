@@ -10,7 +10,7 @@ value: {{roomsForm.value|json}} <br>
 <form #roomsForm="ngForm" (ngSubmit)="AddRoom(roomsForm)"> <!-- #roomFrom store instance of ngForm-->
     <div class="form-group">
         <input required class="form-control" type="number" name="roomNo" [(ngModel)]="room.roomNo" id="roomno"
-            placeholder="Enter Room No">
+            placeholder="Enter Room No" [ngModelOptions]="{updateOn:'blur'}">
     </div>
     <div class="form-group">
         <input required class="form-control" type="text" name="roomType" [(ngModel)]="room.roomType" id="roomtype"

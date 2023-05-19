@@ -67,10 +67,12 @@ export class RoomsComponent implements OnInit,  AfterViewInit, AfterViewChecked,
     }
     )
     //  this.roomService.getRooms().subscribe
-    this.subscription=this.roomService.getRooms$.subscribe(rooms => { //use getRooms$ stream to call same api at multipal component it will only send  HttpRequest once
-      this.roomsList = rooms;});
+    // this.subscription=this.roomService.getRooms$.subscribe(rooms => { //use getRooms$ stream to call same api at multipal component it will only send  HttpRequest once
+    //   this.roomsList = rooms;});
     // 
- 
+     this.roomService.getRooms$.pipe(
+      map(data=>this.roomsList=data)
+     ).subscribe();
     this.roomService.getPhotos().subscribe((event) => {
       switch (event.type) {
         case HttpEventType.Sent: {

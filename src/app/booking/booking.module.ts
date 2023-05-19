@@ -8,12 +8,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-IN' },
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
   ],
   declarations: [
-    BookingComponent
+    BookingComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +26,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    HttpClientModule
+   
   ]
 })
 export class BookingModule { }
